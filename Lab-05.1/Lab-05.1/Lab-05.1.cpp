@@ -11,30 +11,8 @@
 
 using namespace std;
 
-double calculateP(double x)
-{
-    return 1.0 + pow(x, 2) / 2.0 - pow(x, 4) / 4.0;
-}
-
-optional<double> calculateResult(double s)
-{
-    const double pAtS = calculateP(s);
-    const double radicand = pAtS + pow(pAtS, 4);
-    if (radicand < 0.0)
-    {
-        cout << "The expression under the square root must be non-negative." << endl;
-        return nullopt;
-    }
-
-    const double firstArgument = 1.0 + 2.0 * s + pow(s, 2);
-    const double secondArgument = 1.0 + 3.0 * s + pow(s, 3);
-    const double firstP = calculateP(firstArgument);
-    const double secondP = calculateP(secondArgument);
-    const double numerator = pow(firstP, 2) - pow(secondP, 3);
-    const double result = numerator / (1.0 + sqrt(radicand));
-
-    return result;
-}
+double calculateP(double x);
+optional<double> calculateResult(double s);
 
 int main()
 {
@@ -42,11 +20,27 @@ int main()
     cout << "Enter s: ";
     cin >> s;
 
-    const optional<double> result = calculateResult(s);
-    if (result)
-    {
-        cout << setprecision(10) << "Result: " << *result << '\n';
-    }
+    optional<double> result = calculateResult(s);
+    cout << setprecision(10) << "Result: " << *result << '\n';
 
     return 0;
+}
+
+optional<double> calculateResult(double s)
+{
+    double radicand = calculateP(s) + pow(calculateP(s), 4);
+    if (radicand < 0.0)
+    {
+        cout << "The expression under the square root must be non-negative." << endl;
+        return nullopt;
+    }
+
+    double result = (pow(calculateP(1.0 + 2.0 * s + pow(s, 2)), 2) - pow(calculateP(1.0 + 3.0 * s + pow(s, 3)), 3)) / (1.0 + sqrt(radicand));
+
+    return result;
+}
+
+double calculateP(double x)
+{
+    return 1.0 + pow(x, 2) / 2.0 - pow(x, 4) / 4.0;
 }
