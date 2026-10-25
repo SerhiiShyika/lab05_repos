@@ -4,5 +4,6 @@
     <Platform Name="x86" />
   </Configurations>
   <Project Path="Lab-05.1/Lab-05.1.vcxproj" Id="04aa5e61-3c34-4ce0-9b60-6da24c799beb" />
+  <Project Path="Lab-05.2/Lab-05.2.vcxproj" Id="bde6f726-adc1-4f4a-b06a-04af5615f018" />
   <Project Path="UnitTest-lab5/UnitTest-lab5.vcxproj" />
 </Solution>
