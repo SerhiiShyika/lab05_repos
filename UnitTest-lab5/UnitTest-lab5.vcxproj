@@ -182,6 +182,7 @@
     <ClCompile Include="UnitTest-lab5.2.cpp" />
     <ClCompile Include="UnitTest-lab5.3.cpp" />
     <ClCompile Include="UnitTest-lab5.4.cpp" />
+    <ClCompile Include="UnitTest-lab5.5.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -195,6 +196,9 @@
     </ProjectReference>
     <ProjectReference Include="..\Lab-5.4\Lab-5.4.vcxproj">
       <Project>{51702cc7-b7a1-46b9-8e9f-bd433719959e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Lab-05.5\Lab-05.5.vcxproj">
+      <Project>{c8ee1084-18af-4266-9514-e34ef66df311}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
